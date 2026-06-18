@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#161512" />
+  <title>Échecs Coach — apprends en jouant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">♞</span>
+      <div>
+        <h1>Échecs Coach</h1>
+        <p class="tagline">Joue, et un entraîneur t'explique chaque coup.</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="sound-btn" class="icon-btn" title="Activer / couper le son">🔊</button>
+      <button id="new-btn" class="text-btn">Nouvelle partie</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Colonne échiquier -->
+    <section class="board-column">
+      <div class="board-wrap">
+        <div id="eval-bar" class="eval-bar" title="Évaluation de la position">
+          <div id="eval-fill" class="eval-fill"></div>
+          <span id="eval-num" class="eval-num">0.0</span>
+        </div>
+        <div id="board" class="board" aria-label="Échiquier"></div>
+      </div>
+      <div id="captured" class="captured">
+        <div id="captured-bottom" class="captured-row"></div>
+      </div>
+    </section>
+
+    <!-- Colonne coach / contrôles -->
+    <aside class="side">
+      <div id="coach-card" class="card coach-card">
+        <div class="coach-head">
+          <span class="coach-avatar">🦉</span>
+          <span class="coach-name">Coach</span>
+          <span id="move-badge" class="move-badge hidden"></span>
+        </div>
+        <p id="coach-msg" class="coach-msg">Choisis ta couleur et ton niveau pour commencer.</p>
+        <p id="coach-detail" class="coach-detail"></p>
+      </div>
+
+      <div class="card controls">
+        <div class="control-row">
+          <button id="hint-btn" class="btn ghost">💡 Indice</button>
+          <button id="undo-btn" class="btn ghost">↩ Annuler</button>
+          <button id="flip-btn" class="btn ghost">⇅ Tourner</button>
+        </div>
+      </div>
+
+      <div class="card status-card">
+        <div id="status" class="status">En attente de partie…</div>
+      </div>
+
+      <div class="card history-card">
+        <div class="card-title">Coups</div>
+        <ol id="history" class="history"></ol>
+      </div>
+
+      <div class="card tip-card">
+        <span class="tip-icon">📘</span>
+        <span id="tip" class="tip-text"></span>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modale de configuration -->
+  <div id="setup" class="modal-overlay">
+    <div class="modal">
+      <h2>Nouvelle partie</h2>
+      <div class="field">
+        <label>Tu joues avec…</label>
+        <div class="seg" id="color-seg">
+          <button data-color="w" class="seg-btn active">♔ Blancs</button>
+          <button data-color="b" class="seg-btn">♚ Noirs</button>
+          <button data-color="r" class="seg-btn">🎲 Aléatoire</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Niveau de l'adversaire</label>
+        <div class="seg" id="level-seg">
+          <button data-level="1" class="seg-btn active">Débutant</button>
+          <button data-level="2" class="seg-btn">Intermédiaire</button>
+          <button data-level="3" class="seg-btn">Avancé</button>
+        </div>
+      </div>
+      <label class="check">
+        <input type="checkbox" id="coach-toggle" checked />
+        Activer les conseils du coach
+      </label>
+      <button id="play-btn" class="btn primary big">Jouer ♟</button>
+      <p class="modal-foot">Tout fonctionne hors-ligne, directement dans ton navigateur.</p>
+    </div>
+  </div>
+
+  <!-- Modale de promotion -->
+  <div id="promo" class="modal-overlay hidden">
+    <div class="modal small">
+      <h2>Promotion</h2>
+      <div class="promo-choices" id="promo-choices"></div>
+    </div>
+  </div>
+
+  <script src="vendor/chess.js"></script>
+  <script src="engine.js"></script>
+  <script src="coach.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

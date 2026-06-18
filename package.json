@@ -1,0 +1,11 @@
+{
+  "name": "echecs-coach",
+  "version": "1.0.0",
+  "description": "Application web pour jouer aux échecs et apprendre : un coach commente chaque coup en français. 100% hors-ligne.",
+  "scripts": {
+    "test": "node test/smoke.js && node test/dom.js",
+    "test:game": "node test/game.js"
+  },
+  "license": "MIT",
+  "private": true
+}
