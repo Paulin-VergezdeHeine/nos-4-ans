@@ -38,6 +38,22 @@ Aucune dépendance à installer. Deux options :
    # puis ouvre http://localhost:8000
    ```
 
+## 📱 Mettre en ligne pour le téléphone
+
+L'app est une PWA (installable, fonctionne hors-ligne). Pour y accéder depuis
+ton téléphone, publie-la sur **GitHub Pages** (gratuit, dépôt public). Activation
+en une fois (GitHub n'autorise pas un robot à activer Pages la première fois) :
+
+1. Ouvre le dépôt sur GitHub → **Settings** → **Pages**.
+2. Sous **Build and deployment** → **Source** : choisis **Deploy from a branch**.
+3. **Branch** : `claude/new-project-brainstorm-y6y92y`, dossier `/ (root)` → **Save**.
+4. Attends ~1 minute. L'URL apparaît :
+   `https://paulin-vergezdeheine.github.io/nos-4-ans/`
+
+Sur le téléphone, ouvre cette URL puis **Ajouter à l'écran d'accueil**
+(menu Partager sur iPhone, menu ⋮ sur Android) : l'app s'installe comme une vraie
+appli et marche ensuite même sans réseau.
+
 ## 🧠 Comment ça marche
 
 | Fichier | Rôle |
